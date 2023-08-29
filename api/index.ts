@@ -3,6 +3,7 @@ import carImage from '../public/images/1.png';
 import carImage2 from '../public/images/2.jpg';
 import carImage3 from '../public/images/3.jpg';
 import countryIcon from '../public/icons/main-page/china.svg';
+import { StaticImageData } from 'next/image';
 
 // const instance = axios.create({
 // baseURL: process.env.MIX_APP_BASE_PATH,
@@ -78,9 +79,9 @@ const delay = new Promise((res) => {
 
 export type CarItem = {
 	id: number;
-	image: string;
+	image: StaticImageData;
 	name: string;
-	countryIcon: string;
+	countryIcon: StaticImageData;
 	countryName: string;
 	countryVerbose: string;
 	description: string;
