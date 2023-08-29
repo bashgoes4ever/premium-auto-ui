@@ -1,11 +1,13 @@
+import { CarItem, getCars } from '../api/index';
 import Block1 from '../components/MainPage/Block1/index';
 import Block2 from '../components/MainPage/Block2/index';
 import Block3 from '../components/MainPage/Block3/index';
-import { CarItem, getCars } from '../api/index';
 import Catalog from '../components/Catalog/index';
 import Block5 from '../components/MainPage/Block5/index';
 import Block6 from '../components/MainPage/Block6/index';
 import Block7 from '../components/MainPage/Block7/index';
+import Block8 from '../components/MainPage/Block8/index';
+import Block9 from '../components/MainPage/Block9/index';
 
 type Data = {
 	cars: CarItem[]
@@ -14,9 +16,7 @@ type Data = {
 async function getData(): Promise<Data> {
 	const cars = await getCars();
 
-	return {
-		cars
-	};
+	return { cars };
 }
 
 export default async function Home() {
@@ -31,6 +31,8 @@ export default async function Home() {
 			<Block5 />
 			<Block6 />
 			<Block7 />
+			<Block8 />
+			<Block9 />
 		</>
 	);
 }
