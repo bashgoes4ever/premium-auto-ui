@@ -1,0 +1,30 @@
+@import "styles/mixins";
+
+.box {
+	width: 100%;
+	padding: 24px 22px;
+	border-radius: 4px;
+	background-color: var(--grey-light4);
+}
+
+.title {
+	font-size: 16px;
+	line-height: 24px;
+	color: var(--grey);
+	position: relative;
+	cursor: pointer;
+
+	img {
+		@include centerVertical;
+
+		right: 0;
+	}
+
+	img.iconActive {
+		transform: translateY(-50%) rotate(180deg);
+	}
+}
+
+.content {
+	margin-top: 16px;
+}

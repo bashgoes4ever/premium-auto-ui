@@ -1,0 +1,172 @@
+@import "styles/mixins";
+
+.wrapper {
+	position: relative;
+	padding-bottom: 65px;
+
+	h2 {
+		font: var(--font-title);
+		text-align: center;
+		margin-bottom: 55px;
+	}
+}
+
+.content {
+	position: relative;
+	z-index: 2;
+}
+
+.bg {
+	bottom: 0;
+	@include centerHorizontal;
+}
+
+.slider {
+	overflow: hidden;
+	position: relative;
+}
+
+.sliderContainer {
+	backface-visibility: hidden;
+	display: flex;
+	touch-action: pan-y;
+}
+
+.slide {
+	flex: 0 0 100%;
+	opacity: 0;
+	transition: opacity .5s;
+	height: 370px;
+
+	h3 {
+		font-size: 32px;
+		line-height: 40px;
+		font-weight: 600;
+		margin-bottom: 29px;
+	}
+
+	ul {
+		width: 460px;
+	}
+
+	li {
+		color: var(--grey);
+		font-size: 16px;
+		line-height: 24px;
+		position: relative;
+		padding-left: 15px;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 4px;
+			height: 4px;
+			border-radius: 50%;
+			background-color: var(--grey);
+			top: 9px;
+			left: 0;
+		}
+	}
+}
+
+.activeSlide {
+	opacity: 1;
+}
+
+.sliderBlock {
+	position: relative;
+}
+
+.car {
+	position: absolute;
+	bottom: -10px;
+	right: -82px;
+}
+
+.progressBar {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin-bottom: 64px;
+}
+
+.barItem {
+	width: 245px;
+	cursor: pointer;
+	position: relative;
+
+	&:last-child::after {
+		display: none;
+	}
+
+	p {
+		color: var(--grey);
+		font-size: 16px;
+		line-height: 24px;
+		transition: var(--transition);
+	}
+
+	&::after {
+		content: '';
+		width: calc(100% - 31px);
+		height: 1px;
+		border-bottom: 2px dashed var(--grey-light1);
+		position: absolute;
+		left: 31px;
+		top: 14px;
+		transition: var(--transition);
+	}
+}
+
+.circle {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	position: relative;
+	border: 2px solid var(--grey-light1);
+	transition: var(--transition);
+	margin-bottom: 26px;
+
+	&::before {
+		content: '';
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		border: 3px solid var(--red);
+		transition: var(--transition);
+		opacity: 0;
+		@include center
+	}
+}
+
+.title {
+	text-transform: uppercase;
+	font-weight: 600;
+	color: var(--grey);
+	font-size: 14px;
+	line-height: 22px;
+	margin-bottom: 8px;
+	transition: var(--transition);
+}
+
+.barItemActive {
+	.circle {
+		border: 2px solid var(--red);
+
+		&::before {
+			opacity: 1;
+		}
+	}
+
+	&::after {
+		border-bottom: 2px dashed var(--red);
+	}
+
+	p {
+		color: var(--black);
+	}
+
+	.title {
+		color: var(--red);
+	}
+}

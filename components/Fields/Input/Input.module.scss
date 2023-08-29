@@ -1,0 +1,19 @@
+.input {
+	width: 100%;
+	display: block;
+	background-color: var(--grey-light4);
+	border-radius: 4px;
+	padding: 0 22px;
+	font-size: 14px;
+	line-height: 22px;
+	font-family: var(--font-family);
+	height: 64px;
+
+	&::placeholder {
+		font-size: 14px;
+		line-height: 22px;
+		font-family: var(--font-family);
+		color: var(--grey);
+
+	}
+}

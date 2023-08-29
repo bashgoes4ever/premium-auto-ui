@@ -1,0 +1,41 @@
+@import "styles/mixins";
+
+.topRow {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	h2 {
+		font-size: 28px;
+		line-height: 56px;
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+}
+
+.catalogWrapper {
+	margin-top: 26px;
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 90px;
+	align-items: flex-start;
+}
+
+.products {
+	flex: 1 1 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	margin-left: 5px;
+	grid-gap: 5px;
+}
+
+.search {
+	grid-column: span 3;
+	position: relative;
+
+	button {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}

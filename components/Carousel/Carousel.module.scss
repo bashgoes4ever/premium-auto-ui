@@ -1,0 +1,51 @@
+@import 'styles/mixins';
+
+.slider {
+	overflow: hidden;
+}
+
+.sliderContainer {
+	backface-visibility: hidden;
+	display: flex;
+	touch-action: pan-y;
+}
+
+.titleRow {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 56px;
+
+	h2 {
+		font: var(--font-title);
+	}
+}
+
+.buttons {
+	display: flex;
+	justify-content: flex-start;
+
+	button {
+		@include itemsMarginRight($margin: 16px);
+	}
+}
+
+.dots {
+	width: 100%;
+	height: 2px;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 48px;
+}
+
+.dot {
+	height: 100%;
+	flex: 1 1 0;
+	background-color: var(--grey-light1);
+	cursor: pointer;
+	transition: var(--transition);
+}
+
+.selectedDot {
+	background-color: var(--red);
+}

@@ -1,48 +1,76 @@
 import React from 'react';
-import styles from './Block2.module.scss';
+import styles from './Block3.module.scss';
+import { classNames } from '../../../utils/classNames';
+import Carousel from '../../Carousel/index';
+import { CarItem } from '../../../api/index';
+import Image from 'next/image';
+import { formatNumber } from '../../../utils/misc';
 
-const Block2: React.FC = () => {
+type Props = {
+	slides: CarItem[];
+}
+
+const Block3: React.FC<Props> = React.memo(({ slides }) => {
 	return (
-		<div className={ styles.wrapper }>
-			<div className="container">
-				<div className={ styles.suptitle }>С нашей стороны сделаем все чтобы :</div>
-				<h2 className={ styles.title }>Вы получили проверенный автомобиль <br />с доставкой, растоможкой и
-					постановкой на учет в России
-				</h2>
+		<div className={ classNames(styles.wrapper, {}, ['container']) }>
+			<Carousel title="Автомобили привезенные нами в 2023 году">
+				{
+					slides.map((slide: CarItem) => {
+						const {
+							id,
+							name,
+							image,
+							description,
+							countryIcon,
+							countryVerbose,
+							price,
+							discount,
+							options
+						} = slide;
 
-				<div className={ styles.flex }>
-					<div className={ styles.card }>
-						<div className={ styles.number }>01</div>
-						<div className={ styles.line }></div>
-						<h4>Федеральная сеть Premium работает уже более 10 лет</h4>
-						<p>С 2021 года работает инфраструктура Premium auto, по поставке НОВЫХ или возрастом до 5 лет,
-							премиальных автомобилей с рынков Китая, США, Европы или ОАЭ.</p>
-					</div>
-					<div className={ styles.card }>
-						<div className={ styles.number }>02</div>
-						<div className={ styles.line }></div>
-						<h4>Фото и видео отчёты на каждом этапе пригона авто</h4>
-						<p>Проводим все необходимые таможенные процедуры, установку системы вызова с определением по
-							ГЛОНАСС, получение СГБТС, ЭПТС, прохождение процедуры оплаты утильвзноса</p>
-					</div>
-					<div className={ styles.card }>
-						<div className={ styles.number }>03</div>
-						<div className={ styles.line }></div>
-						<h4>Репутация надёжного и ответственного партнёра</h4>
-						<p>Наш дружный коллектив неизменен долгие годы, так как политику взаимной выгоды, надёжных и
-							открытых отношений, мы применяем к клиентам и собственным сотрудникам.</p>
-					</div>
-					<div className={ styles.card }>
-						<div className={ styles.number }>04</div>
-						<div className={ styles.line }></div>
-						<h4>Наши представители в Китае, США, Европе и других странах</h4>
-						<p>Наши представители организуют подбор, подготовку и контроль отправки автомобилей в Россию,
-							Белоруссию, Грузию, Киргизию или Казахстан. </p>
-					</div>
-				</div>
-			</div>
+						return (
+							<div key={ id } className={ styles.slide }>
+								<div className={ styles.image }>
+									<Image src={ image } alt={ name } />
+								</div>
+								<div className={ styles.right }>
+									<div className={ styles.topRow }>
+										<div>
+											<h4>{ name }</h4>
+											<p>{ description }</p>
+										</div>
+										<div className={ styles.countryIcon }>
+											<Image src={ countryIcon } alt={ countryVerbose } />
+										</div>
+									</div>
+									<div className={ styles.options }>
+										{
+											options.map(({ key, value }) => (
+												<div key={ `${ key }-${ value }` } className={ styles.option }>
+													<div className={ styles.key }>{ key }</div>
+													<div className={ styles.dots } />
+													<div className={ styles.value }>{ value }</div>
+												</div>
+											))
+										}
+									</div>
+									<div className={ styles.priceTitle }>Стоимость авто из { countryVerbose } со всеми
+										доккументами и растоможкой
+									</div>
+									<div className={ styles.priceRow }>
+										<div className={ styles.price }>{ formatNumber(price) } р.</div>
+										<div className={ styles.discount }><span>На { discount }%</span> ниже рынка В РФ
+										</div>
+									</div>
+								</div>
+							</div>
+						);
+					})
+				}
+			</Carousel>
 		</div>
 	);
-};
+});
 
-export default Block2;
+Block3.displayName = 'MainPageBlock2';
+export default Block3;

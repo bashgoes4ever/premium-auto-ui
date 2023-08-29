@@ -1,0 +1,46 @@
+@import "styles/mixins";
+
+.wrapper {
+	width: 100%;
+	background-color: var(--light);
+	border-radius: 4px;
+	padding: 15px 10px;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+
+	&::after {
+		content: '';
+		width: 22px;
+		height: 1px;
+		background-color: var(--grey-light1);
+		@include center;
+	}
+}
+
+.value {
+	width: 100%;
+	font-size: 16px;
+	line-height: 24px;
+	color: var(--grey);
+
+	&:nth-child(1) {
+		text-align: left;
+	}
+
+	&:nth-child(2) {
+		text-align: right;
+	}
+}
+
+.slider {
+	position: absolute;
+	bottom: 0;
+	left: 15px;
+	width: calc(100% - 30px);
+	padding: 0 15px;
+	height: 2px;
+	height: 2px;
+	border-radius: 4px;
+	background-color: var(--grey-light1);
+}

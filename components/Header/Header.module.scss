@@ -1,0 +1,54 @@
+$logo-width: 228px;
+$header-height: 76px;
+
+.header {
+	height: $header-height;
+	background-color: var(--light);
+	width: 100%;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: 1fr $logo-width 1fr;
+	height: 100%;
+	align-items: center;
+	position: relative;
+}
+
+.logo {
+	width: $logo-width;
+	position: relative;
+	display: block;
+	height: 100%;
+
+	& > svg {
+		width: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		z-index: 1;
+	}
+
+	& > img {
+		position: absolute;
+		z-index: 2;
+		top: 31px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+.left {
+	padding-left: 52px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.socials {
+	position: absolute;
+	right: 0;
+	top: $header-height + 16px;
+	z-index: 2;
+}

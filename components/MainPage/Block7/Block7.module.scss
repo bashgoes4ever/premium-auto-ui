@@ -1,0 +1,35 @@
+.wrapper {
+	padding: 72px 0;
+}
+
+.title {
+	font: var(--font-title);
+	text-align: center;
+	margin-bottom: 88px;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 8px;
+	margin-bottom: 78px;
+}
+
+.gridItem {
+	height: 253px;
+
+	&:first-child {
+		grid-column: span 2;
+		grid-row: span 2;
+		height: 100%;
+	}
+}
+
+.youtube {
+	height: 100%;
+}
+
+.slide {
+	flex: 0 0 384px;
+	margin-right: 8px;
+}

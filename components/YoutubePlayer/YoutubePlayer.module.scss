@@ -1,0 +1,43 @@
+@import "styles/mixins";
+
+.wrapper {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 250px;
+	border-radius: 8px;
+}
+
+.thumb {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	cursor: pointer;
+
+	&:hover {
+		.play {
+			transform: translate(-50%, -50%) scale(1.1);
+		}
+	}
+}
+
+.bg {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	@include center;
+}
+
+.play {
+	transition: var(--transition);
+	@include center
+}
+
+.youtube {
+	height: 100% !important;
+}

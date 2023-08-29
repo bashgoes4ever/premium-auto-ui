@@ -1,3 +1,20 @@
+@import "fonts";
+
 :root {
-	--font-family: 1;
+	--font-family: 'firs';
+	--font-title: bold 36px/48px var(--font-family);
+	--transition: all .3s;
+
+	// colors
+	--light: #fff;
+	--grey: #818F9B;
+	--grey-light1: #D4E2E7;
+	--grey-light2: #F5F6F8;
+	--grey-light3: #CADAE1;
+	--grey-light4: #F7F7F7;
+	--black: #1B1E21;
+	--red: #E22A2A;
+	--red-light: #FFE7E7;
+	--yellow: #FEC200;
+	--bg-light: #E8F1F5;
 }

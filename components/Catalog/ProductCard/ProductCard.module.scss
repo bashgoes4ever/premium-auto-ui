@@ -1,0 +1,98 @@
+@import 'styles/mixins';
+
+.card {
+	width: 100%;
+	border-radius: 4px;
+	background-color: var(--grey-light4);
+	overflow: hidden;
+}
+
+.image {
+	position: relative;
+	width: 100%;
+	height: 220px;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+
+		@include center;
+	}
+}
+
+.topRow {
+	padding: 8px 6px 9px 22px;
+	border-bottom: 1px solid var(--grey-light1);
+
+	h5 {
+		text-transform: uppercase;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: 600;
+		margin-bottom: 12px;
+	}
+}
+
+.countryRow {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.country {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+
+	img {
+		width: 22px;
+		height: 22px;
+		margin-right: 8px;
+	}
+
+	span {
+		font-size: 12px;
+		line-height: 20px;
+		text-transform: uppercase;
+		color: var(--grey);
+	}
+}
+
+.available {
+	width: 83px;
+	height: 23px;
+	background-color: var(--light);
+	text-align: center;
+	font-size: 10px;
+	line-height: 23px;
+	font-weight: 300;
+}
+
+.specs {
+	display: grid;
+	padding: 16px 14px 22px 22px;
+	grid-template-columns: repeat(3, 1fr);
+	font-size: 14px;
+	line-height: 22px;
+	color: var(--grey);
+	grid-gap: 8px;
+}
+
+.bottomRow {
+	padding: 0 6px 24px 22px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.price {
+	font-size: 16px;
+	line-height: 26px;
+	font-weight: 600;
+}
+
+.btn {
+	width: 130px;
+}

@@ -1,0 +1,70 @@
+@import "styles/mixins";
+
+.wrapper {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	position: relative;
+}
+
+.label {
+	font-size: 14px;
+	line-height: 22px;
+	color: var(--grey);
+	margin-right: 16px;
+}
+
+.input {
+	position: relative;
+	width: 170px;
+	height: 24px;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 600;
+	text-transform: uppercase;
+	cursor: pointer;
+	padding-right: 20px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+
+	&:hover > span {
+		opacity: .7;
+	}
+
+	& > img {
+		right: 0;
+		@include centerVertical;
+
+		top: 44%;
+	}
+
+	& > img.iconActive {
+		transform: translateY(-50%) rotate(180deg);
+	}
+}
+
+.options {
+	position: absolute;
+	bottom: -7px;
+	right: 0;
+	transform: translateY(100%);
+	width: 240px;
+	background-color: var(--bg-light);
+	border-radius: 4px;
+	padding: 10px;
+	z-index: 2;
+}
+
+.option {
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 600;
+	text-transform: uppercase;
+	cursor: pointer;
+	@include itemsMarginBottom($margin: 10px);
+
+	&:hover {
+		opacity: .7;
+	}
+}
